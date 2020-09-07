@@ -14,9 +14,9 @@ const divVariants = {
 }
 
 const spanVariants = {
-  start: { y: 0 },
+  start: { y: -5 },
   on: {
-    y: 20,
+    y: 5,
     transition: {
       duration: 1,
       yoyo: Infinity,
@@ -25,24 +25,20 @@ const spanVariants = {
   }
 }
 
-function Span() {
-  return <motion.span className="some" variants={spanVariants} />
-}
-
 function App() {
   return (
-    <div className="App">
-      <motion.div
-        className="motionDiv"
-        initial="start"
-        animate="on"
-        variants={divVariants}
-      >
+    <motion.div
+      className="App"
+      initial="start"
+      animate="on"
+      variants={divVariants}
+    >
+      <motion.div className="motionDiv">
         {[1, 2, 3].map((_, i) => (
-          <Span key={i} />
+          <motion.span key={i} className="some" variants={spanVariants} />
         ))}
       </motion.div>
-    </div>
+    </motion.div>
   )
 }
 
