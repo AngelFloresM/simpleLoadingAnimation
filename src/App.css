@@ -17,13 +17,6 @@ body {
   box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.226);
 }
 
-.App .motionDiv {
-  width: 100px;
-  display: inherit;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 20px;
-}
-
 span {
   width: 20px;
   height: 20px;

@@ -1,5 +1,7 @@
 import React from "react"
 import { motion } from "framer-motion"
+
+import UpDown from "./components/UpDown"
 import "./App.css"
 
 const divVariants = {
@@ -13,18 +15,6 @@ const divVariants = {
   }
 }
 
-const spanVariants = {
-  start: { y: -5 },
-  on: {
-    y: 5,
-    transition: {
-      duration: 1,
-      yoyo: Infinity,
-      type: "tween"
-    }
-  }
-}
-
 function App() {
   return (
     <motion.div
@@ -33,11 +23,7 @@ function App() {
       animate="on"
       variants={divVariants}
     >
-      <motion.div className="motionDiv">
-        {[1, 2, 3].map((_, i) => (
-          <motion.span key={i} className="some" variants={spanVariants} />
-        ))}
-      </motion.div>
+      <UpDown />
     </motion.div>
   )
 }
