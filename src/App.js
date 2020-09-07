@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
 
 import UpDown from "./components/UpDown"
 import GrowShrink from "./components/GrowShrink"
-import Circles from "./components/Circles"
+import Select from "./components/Select"
 import Header from "./components/Header"
 import "./App.css"
 
@@ -13,13 +13,17 @@ function App() {
     <div className="App">
       <Router>
         <Header />
-        <AnimatePresence>
-          <Switch>
-            <Route path="/updown" component={UpDown} />
-            <Route path="/growshrink" component={GrowShrink} />
-            {/* <Route path="/circles" component={Circles} /> */}
-          </Switch>
-        </AnimatePresence>
+        <Route
+          render={({ location }) => (
+            <AnimatePresence exitBeforeEnter>
+              <Switch location={location} key={location.pathname}>
+                <Route path="/updown" component={UpDown} />
+                <Route path="/growshrink" component={GrowShrink} />
+                <Route path="/" component={Select} />
+              </Switch>
+            </AnimatePresence>
+          )}
+        />
       </Router>
     </div>
   )

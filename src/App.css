@@ -13,6 +13,7 @@ body {
   display: grid;
   grid-template-rows: 100px 1fr;
   place-items: center;
+  overflow: hidden;
   border-radius: 20px;
   background-color: rgb(255, 255, 255);
   box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.226);

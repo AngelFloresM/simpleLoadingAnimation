@@ -18,7 +18,10 @@ const parent = {
     }
   },
   exit: {
-    scale: 0
+    scale: 0,
+    transition: {
+      duration: 0.25
+    }
   }
 }
 

@@ -14,11 +14,15 @@ const parent = {
     scale: 1,
     transition: {
       delay: 0.2,
-      staggerChildren: 0.4
+      staggerChildren: 0.4,
+      when: "beforeChildren"
     }
   },
   exit: {
-    scale: 0
+    scale: 0,
+    transition: {
+      duration: 0.25
+    }
   }
 }
 

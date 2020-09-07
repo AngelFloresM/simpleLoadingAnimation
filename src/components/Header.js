@@ -6,15 +6,12 @@ import "./Header.css"
 export default function Header() {
   return (
     <nav className="Header">
-      <NavLink to="/updown" activeClassName="active">
+      <NavLink to="/updown" activeClassName="selected">
         Up Down
       </NavLink>
-      <NavLink to="/growshrink" activeClassName="active">
+      <NavLink to="/growshrink" activeClassName="selected">
         Grow Shrink
       </NavLink>
-      {/* <NavLink to="/circles" activeClassName="active">
-        Circles
-      </NavLink> */}
     </nav>
   )
 }
