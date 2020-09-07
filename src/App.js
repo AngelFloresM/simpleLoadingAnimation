@@ -1,30 +1,27 @@
 import React from "react"
-import { motion } from "framer-motion"
+import { AnimatePresence } from "framer-motion"
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
 
 import UpDown from "./components/UpDown"
+import GrowShrink from "./components/GrowShrink"
+import Circles from "./components/Circles"
+import Header from "./components/Header"
 import "./App.css"
-
-const divVariants = {
-  start: { scale: 0 },
-  on: {
-    scale: 1,
-    transition: {
-      delay: 2,
-      staggerChildren: 0.4
-    }
-  }
-}
 
 function App() {
   return (
-    <motion.div
-      className="App"
-      initial="start"
-      animate="on"
-      variants={divVariants}
-    >
-      <UpDown />
-    </motion.div>
+    <div className="App">
+      <Router>
+        <Header />
+        <AnimatePresence>
+          <Switch>
+            <Route path="/updown" component={UpDown} />
+            <Route path="/growshrink" component={GrowShrink} />
+            {/* <Route path="/circles" component={Circles} /> */}
+          </Switch>
+        </AnimatePresence>
+      </Router>
+    </div>
   )
 }
 

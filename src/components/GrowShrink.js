@@ -1,7 +1,7 @@
 import React from "react"
 import { motion } from "framer-motion"
 
-import "./UpDown.css"
+import "./GrowShrink.css"
 
 const parent = {
   start: {
@@ -14,7 +14,7 @@ const parent = {
     scale: 1,
     transition: {
       delay: 0.2,
-      staggerChildren: 0.4
+      staggerChildren: 0.7
     }
   },
   exit: {
@@ -23,22 +23,23 @@ const parent = {
 }
 
 const child = {
-  start: { y: -5 },
+  start: { scale: 1 },
   on: {
-    y: 5,
+    scale: 2,
     transition: {
       duration: 1,
       yoyo: Infinity,
+      repeatDelay: 1,
       type: "tween"
     }
   }
 }
 
-export default function UpDown() {
+export default function GrowShrink() {
   return (
     <motion.div
-      key="UpDown"
-      className="UpDown"
+      key="GrowShrink"
+      className="GrowShrink"
       initial="start"
       animate="on"
       exit="exit"
