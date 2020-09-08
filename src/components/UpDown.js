@@ -19,13 +19,6 @@ const variants = {
   }
 }
 
-const transition = i => ({
-  delay: i * 0.5,
-  duration: 2,
-  times: [0, 0.5, 1],
-  repeat: Infinity
-})
-
 export default function UpDown() {
   return (
     <motion.div
@@ -41,7 +34,12 @@ export default function UpDown() {
           key={i}
           className="some"
           animate={{ y: [-10, 10, -10] }}
-          transition={transition(i)}
+          transition={{
+            delay: i * 0.5,
+            duration: 2,
+            times: [0, 0.5, 1],
+            repeat: Infinity
+          }}
         />
       ))}
     </motion.div>
