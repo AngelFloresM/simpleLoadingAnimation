@@ -4,6 +4,7 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
+  z-index: 1;
 }
 
 .Header a {
@@ -12,10 +13,10 @@
   text-align: center;
   text-decoration: none;
   color: white;
-  background-color: rgb(87, 87, 87);
+  background-color: rgba(87, 87, 87, 0.5);
 }
 
 .selected {
   color: rgb(39, 35, 35) !important;
-  background-color: white !important;
+  background-color: transparent !important;
 }

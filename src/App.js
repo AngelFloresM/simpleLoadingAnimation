@@ -8,14 +8,14 @@ import Select from "./components/Select"
 import Header from "./components/Header"
 import "./App.css"
 
-function App() {
+export function App() {
   return (
     <div className="App">
       <Router>
         <Header />
         <Route
           render={({ location }) => (
-            <AnimatePresence exitBeforeEnter>
+            <AnimatePresence exitBeforeEnter initial={false}>
               <Switch location={location} key={location.pathname}>
                 <Route path="/updown" component={UpDown} />
                 <Route path="/growshrink" component={GrowShrink} />
@@ -28,5 +28,3 @@ function App() {
     </div>
   )
 }
-
-export default App

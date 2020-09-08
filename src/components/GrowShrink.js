@@ -7,7 +7,7 @@ const parent = {
   start: {
     scale: 0,
     transition: {
-      duration: 0.5
+      duration: 0.25
     }
   },
   on: {
@@ -15,25 +15,6 @@ const parent = {
     transition: {
       delay: 0.2,
       staggerChildren: 0.7
-    }
-  },
-  exit: {
-    scale: 0,
-    transition: {
-      duration: 0.25
-    }
-  }
-}
-
-const child = {
-  start: { scale: 1 },
-  on: {
-    scale: 2,
-    transition: {
-      duration: 1,
-      yoyo: Infinity,
-      repeatDelay: 1,
-      type: "tween"
     }
   }
 }
@@ -45,11 +26,23 @@ export default function GrowShrink() {
       className="GrowShrink"
       initial="start"
       animate="on"
-      exit="exit"
+      exit="start"
       variants={parent}
     >
-      {[1, 2, 3].map((_, i) => (
-        <motion.span key={i} className="some" variants={child} />
+      {[1, 2, 3, 4].map((_, i) => (
+        <motion.span
+          key={i}
+          className="some"
+          animate={{ scale: [1, 1.5, 1] }}
+          transition={{
+            type: "spring",
+            times: [0, 0.5, 1],
+            repeat: Infinity,
+            duration: 1.5,
+            delay: i * 0.5,
+            repeatDelay: 1
+          }}
+        />
       ))}
     </motion.div>
   )

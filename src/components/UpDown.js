@@ -3,40 +3,28 @@ import { motion } from "framer-motion"
 
 import "./UpDown.css"
 
-const parent = {
+const variants = {
   start: {
     scale: 0,
     transition: {
-      duration: 0.5
+      duration: 0.25
     }
   },
   on: {
     scale: 1,
     transition: {
       delay: 0.2,
-      staggerChildren: 0.4,
       when: "beforeChildren"
-    }
-  },
-  exit: {
-    scale: 0,
-    transition: {
-      duration: 0.25
     }
   }
 }
 
-const child = {
-  start: { y: -5 },
-  on: {
-    y: 5,
-    transition: {
-      duration: 1,
-      yoyo: Infinity,
-      type: "tween"
-    }
-  }
-}
+const transition = i => ({
+  delay: i * 0.5,
+  duration: 2,
+  times: [0, 0.5, 1],
+  repeat: Infinity
+})
 
 export default function UpDown() {
   return (
@@ -45,11 +33,16 @@ export default function UpDown() {
       className="UpDown"
       initial="start"
       animate="on"
-      exit="exit"
-      variants={parent}
+      exit="start"
+      variants={variants}
     >
       {[1, 2, 3].map((_, i) => (
-        <motion.span key={i} className="some" variants={child} />
+        <motion.span
+          key={i}
+          className="some"
+          animate={{ y: [-10, 10, -10] }}
+          transition={transition(i)}
+        />
       ))}
     </motion.div>
   )

@@ -1,3 +1,13 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
 body {
   margin: 0;
   width: 100vw;
@@ -15,12 +25,12 @@ body {
   place-items: center;
   overflow: hidden;
   border-radius: 20px;
-  background-color: rgb(255, 255, 255);
+  background-color: rgba(255, 255, 255, 0.5);
   box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.226);
 }
 
 span {
-  width: 20px;
-  height: 20px;
-  background-color: rgb(240, 130, 144);
+  width: 30px;
+  height: 30px;
+  background-color: rgb(245, 149, 162);
 }
